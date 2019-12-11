@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'maven'
+    id "io.freefair.lombok" version "4.1.6"
+}
+
+group 'com.cadiducho'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url "https://cadiducho.com/repo/"
+    }
+}
+
+dependencies {
+    implementation group: 'com.cadiducho', name: 'Zincite', version: '1.0.1'
+}
