@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Random;
 
 @Log
-@CommandInfo(module = MessageIdModule.class, aliases = {"/messageid"})
+@CommandInfo(module = MessageIdModule.class, aliases = {"/messageid"}, hidden=true)
 public class MessageIdCommand implements BotCommand {
 
     @Override
