@@ -1,11 +1,11 @@
 plugins {
     id 'java'
-    id "io.freefair.lombok" version "6.3.0"
-    id "maven-publish"
+    id 'maven-publish'
+    id "io.freefair.lombok" version "6.5.0.2"
 }
 
 group 'com.cadiducho'
-version '1.2'
+version '1.5'
 
 publishing {
     publications {
@@ -17,6 +17,27 @@ publishing {
             from components.java
         }
     }
+    repositories {
+        maven {
+            name = "cadiduchoRepoSnapshots"
+            url = "https://repo.cadiducho.com/snapshots"
+            credentials(PasswordCredentials)
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+        maven {
+            name = "releases"
+            url = "https://repo.cadiducho.com/releases"
+            credentials {
+                username System.getenv("MAVEN_NAME")
+                password System.getenv("MAVEN_PASSWORD")
+            }
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -25,10 +46,10 @@ repositories {
     mavenCentral()
     mavenLocal()
     maven {
-        url "https://cadiducho.com/repo/"
+        url "https://repo.cadiducho.com/releases"
     }
 }
 
 dependencies {
-    implementation group: 'com.cadiducho', name: 'Zincite', version: '1.4.2'
+    implementation group: 'com.cadiducho', name: 'Zincite', version: '1.5.1'
 }
