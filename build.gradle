@@ -1,11 +1,11 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id "io.freefair.lombok" version "6.5.0.2"
+    id "io.freefair.lombok" version "8.4"
 }
 
 group 'com.cadiducho'
-version '1.5'
+version '1.8'
 
 publishing {
     publications {
@@ -51,5 +51,5 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'com.cadiducho', name: 'Zincite', version: '1.5.1'
+    implementation group: 'com.cadiducho', name: 'Zincite', version: '1.8'
 }
